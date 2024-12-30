@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @comment %>
+
+<div>
+  <%= link_to "Back to comments", comments_path %>
+
+  
+  <% if user_signed_in? %>
+    <% if current_user.id == @comment.user_id || current_user.role == 1 %>
+      <%= link_to "Edit this comment", edit_comment_path(@comment) %> 
+      <%= button_to "Destroy this comment", @comment, method: :delete %>    
+    <% end %>
+  <% end %>
+  
+  
+
+</div>
